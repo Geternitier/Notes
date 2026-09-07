@@ -1,0 +1,86 @@
+Latex
+
+文档类型
+·英文：book、article、beamer
+·中文：ctexbook、ctexart、ctexbeamer
+基本参数：字体大小、纸张大小、单面打印等（12pt,a4paper,oneside）
+\documentclass[基本参数]{文档类型}
+
+正文部分需在document环境中
+\begin{document}
+\end{document}
+
+包（在document环境之前）
+与数学公式、定理相关的有amsmath、amsthm、amssymb
+用于插入图片：graphicx
+\usepackage[基本参数]{}
+
+标题
+\title{}
+作者
+\author{}
+日期
+\date{\today}
+
+显示标题（在document环境中）
+\maketitle
+
+正文：
+在document环境中编写，默认首行缩进，另起一行需使用一行间隔。
+使用\newpage另起一页。
+
+局部特殊字体
+字体	命令
+直立	\textup{}
+意大利	\textit{}
+倾斜	\textsl{}
+小型大写	\textsc{}
+加宽加粗	\textbf{}
+
+章节
+在ctexart中，章节可以用\section和\subsection来标记
+
+目录
+有了章节后，就可以在选定的位置生成目录
+\tableofcontents
+
+图片
+使用graphicx包插入图片
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=9cm]{pic.jpg}
+	\caption{title}
+\end{figure}
+其中，htbp自动选择插入图片的最优位置，\centering设置居中，\caption设置标题
+
+表格：可以使用https://www.tablesgenerator.com/# 生成
+\begin{table}[htbp]
+	\centering
+	\caption{title}
+	\begin{tabular}{ccc}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+		7 & 8 & 9
+	\end{tabular}
+\end{figure}
+
+列表
+无序列表itemize、有序列表enumerate、描述description
+\begin{enumerate}
+	\item
+	\item
+	\item
+\end{enumerate}
+可以自定义样式：\item[(1)]
+
+修改页边距：使用geometry包
+\usepackage{geometry}
+\geometry{left=2.54cm, right=2.54cm, top=3.18cm, bottom=3.18cm}
+设置行间距
+\linespread{1.5}
+
+页码
+\pagenumbering{}
+默认arabic，阿拉伯数字，也可改为aiph小写字母，Aiph大写字母，Roman大写罗马数字，roman小写罗马数字
+\setcounter{page}{0}
+设置页码从0开始。
